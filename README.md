@@ -16,4 +16,4 @@ Make sure you have Node.js and npm installed on your machine.
 1. Clone the repository:
 
    ```bash
-   
+   https://github.com/MB1lal/CypressAutomation.git
