@@ -13,8 +13,8 @@ describe('Downloading a secure file', () => {
             linkHref += href;
         })
         .then(() => {
-            cy.downloadFile(linkHref,'Downloads','sampleFile.txt');
+            cy.downloadFile(linkHref,'downloads','sampleFile.txt');
         });
-        cy.readFile("./Downloads/sampleFile.txt").should('contain', 'Hello welcome to cypress Framework');
+        cy.readFile("./downloads/sampleFile.txt").should('contain', 'Hello welcome to cypress Framework');
     });
 });

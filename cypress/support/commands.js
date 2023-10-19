@@ -25,7 +25,8 @@ import "cypress-real-events/support";
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-require('cypress-downloadfile/lib/downloadFileCommand')
+require('cypress-downloadfile/lib/downloadFileCommand');
+require('cypress-real-events');
 
 
 Cypress.Commands.add('navigateToXPage', (pageName) => {
@@ -51,7 +52,10 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
       cy.url().should('include', '/dynamic_loading');
       break;
     case 'File Download':
-      // cy.url().should('include', '/download');
+      cy.url().should('include', '/download');
       break;  
+    case 'File Upload':
+      cy.url().should('include', '/upload');
+      break;    
   }
 });
