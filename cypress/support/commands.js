@@ -1,3 +1,4 @@
+import "cypress-real-events/support";
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +24,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('navigateToXPage', (pageName) => {
+  cy.log('Navigating to main page');
+  cy.visit(Cypress.config('baseUrl'));
+  cy.log('Verifying heroku main page is open');
+  cy.url().should('include', Cypress.config('baseUrl'));
+  cy.url().should('include', 'the-internet.herokuapp.com');
+  cy.log('Navigating to ' + pageName);
+  cy.contains(pageName).click();
+  cy.log('Verifying ' + pageName + ' is open');
+  switch(pageName) {
+    case 'Form Authentication':
+        cy.url().should('include', '/login');
+        break;
+    case 'Checkboxes':
+         cy.url().should('include', '/checkboxes');
+         break;
+    case 'Dropdown':
+         cy.url().should('include', '/dropdown');
+         break;
+  }
+});

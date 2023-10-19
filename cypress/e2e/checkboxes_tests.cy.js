@@ -1,4 +1,4 @@
-import './heroku_main'
+import '../support/commands'
 
 describe('Testing the checkboxes page', () => {
   const checkbox1 = '#checkboxes > input:first-of-type';

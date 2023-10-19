@@ -1,4 +1,4 @@
-import './heroku_main'
+import '../support/commands'
 
 describe('Testing authentication form page', () => {
   beforeEach(() => {
