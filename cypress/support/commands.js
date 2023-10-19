@@ -37,13 +37,16 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
   cy.log('Verifying ' + pageName + ' is open');
   switch(pageName) {
     case 'Form Authentication':
-        cy.url().should('include', '/login');
-        break;
+      cy.url().should('include', '/login');
+      break;
     case 'Checkboxes':
-         cy.url().should('include', '/checkboxes');
-         break;
+      cy.url().should('include', '/checkboxes');
+      break;
     case 'Dropdown':
-         cy.url().should('include', '/dropdown');
-         break;
+      cy.url().should('include', '/dropdown');
+      break;
+    case 'Dynamic Loading':
+      cy.url().should('include', '/dynamic_loading');
+      break;
   }
 });
