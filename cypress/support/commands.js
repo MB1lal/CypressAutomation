@@ -66,5 +66,11 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
     case 'JavaScript Alerts':
       cy.url().should('include', '/javascript_alerts');
       break;
+    case 'Notification Messages':
+      cy.url().should('include', '/notification_message_rendered');
+      break;  
+    case 'Multiple Windows':
+      cy.url().should('include', '/windows');
+      break;    
   }
 });
