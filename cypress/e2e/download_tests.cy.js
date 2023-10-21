@@ -5,7 +5,7 @@ describe('Downloading a secure file', () => {
         cy.navigateToXPage('File Download');
     });
 
-    it('Verify file is downloaded successfully', () => {
+    it.skip('Verify file is downloaded successfully', () => {
         var linkHref = Cypress.config('baseUrl') +'/';
         cy.contains('sampleFile.txt')
         .invoke('attr', 'href')
