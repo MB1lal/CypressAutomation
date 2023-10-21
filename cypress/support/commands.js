@@ -63,5 +63,8 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
     case 'Hovers':
       cy.url().should('include', '/hovers');
       break;  
+    case 'JavaScript Alerts':
+      cy.url().should('include', '/javascript_alerts');
+      break;
   }
 });
