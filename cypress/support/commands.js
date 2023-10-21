@@ -57,5 +57,8 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
     case 'File Upload':
       cy.url().should('include', '/upload');
       break;    
+    case 'Frames':
+      cy.url().should('include', '/frames');
+      break;      
   }
 });
