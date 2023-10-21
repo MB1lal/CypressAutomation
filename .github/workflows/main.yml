@@ -17,4 +17,4 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: dist    
+          path: /reports    
