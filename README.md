@@ -1,6 +1,6 @@
 # Cypress Testing Project for Heroku App
 
-![Cypress Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2TDjyxWeYk8OVtD1jaNfmsxJ1HhXPImaFAvx71MxahjSv9GHP-_T82XoSYUN4JJj9Cxk&usqp=CAU)
+![Cypress Logo](https://docs.cypress.io/img/logo/cypress-logo-dark.png)
 
 This repository contains a Cypress testing project for automated end-to-end testing of the [Heroku App](https://the-internet.herokuapp.com). It demonstrates how to write and run Cypress tests for web applications.
 
