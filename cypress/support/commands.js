@@ -59,6 +59,9 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
       break;    
     case 'Frames':
       cy.url().should('include', '/frames');
-      break;      
+      break;
+    case 'Hovers':
+      cy.url().should('include', '/hovers');
+      break;  
   }
 });
