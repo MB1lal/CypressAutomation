@@ -17,4 +17,4 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: /reports    
+          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports    
