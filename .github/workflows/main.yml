@@ -3,18 +3,20 @@ name: Cypress Tests
 on: push
 
 jobs:
-  cypress-run:
+  cypress-run-chrome:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Cypress run
+      - name: Cypress Chrome Execution
         uses: cypress-io/github-action@v6
         with:
-          test: npm cypress run --e2e --headless;
+          e2e: 
+          browser: chrome
       - name: Save build folder
         uses: actions/upload-artifact@v3
         with:
           name: build
           if-no-files-found: error
-          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports    
+          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports 
+             
