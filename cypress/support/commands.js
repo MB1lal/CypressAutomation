@@ -31,10 +31,9 @@ require('cypress-real-events');
 
 Cypress.Commands.add('navigateToXPage', (pageName) => {
   cy.log('Navigating to main page');
-  cy.visit(Cypress.config('baseUrl'));
+  cy.visit('');
   cy.log('Verifying heroku main page is open');
   cy.url().should('include', Cypress.config('baseUrl'));
-  cy.url().should('include', 'the-internet.herokuapp.com');
   cy.log('Navigating to ' + pageName);
   cy.contains(pageName).click();
   cy.log('Verifying ' + pageName + ' is open');
@@ -72,5 +71,17 @@ Cypress.Commands.add('navigateToXPage', (pageName) => {
     case 'Multiple Windows':
       cy.url().should('include', '/windows');
       break;    
-  }
+    case 'Add/Remove Elements':
+      cy.url().should('include', '/add_remove_elements')
+      break;    
+    case 'Broken Images':
+      cy.url().should('include', '/broken_images')
+      break;  
+    case 'Context Menu':
+      cy.url().should('include', '/context_menu')
+      break;    
+    case 'Drag and Drop':
+      cy.url().should('include', '/drag_and_drop')
+      break;    
+    }
 });
