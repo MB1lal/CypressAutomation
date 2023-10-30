@@ -1,4 +1,5 @@
 # Cypress Testing Project for Heroku App
+[![Cypress Tests](https://github.com/MB1lal/CypressAutomation/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/MB1lal/CypressAutomation/actions/workflows/main.yml)
 
 ![Cypress Logo](https://docs.cypress.io/img/logo/cypress-logo-dark.png)
 
