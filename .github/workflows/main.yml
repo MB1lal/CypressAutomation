@@ -18,7 +18,7 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports
+          path: ./cypress/reports
 
   publish-to-gh-pages:
     needs: cypress-run-chrome
@@ -28,19 +28,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Create and clean gh-pages branch
         run: |
-          git checkout --orphan gh-pages
-          git rm -rf .
-          touch .gitkeep
-          git add .gitkeep
-          git commit -m "Initialize gh-pages branch"
-          git push origin gh-pages --force
+            git checkout --orphan gh-pages
+            git rm -rf .
+          
       - name: Download Cypress artifacts
         uses: actions/download-artifact@v3
         with:
           name: build
-          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports
-      - name: Publish to GitHub Pages
-        uses: jamesgeorge007/github-pages-deploy-action@releases/v3
+          path: ./cypress/reports
+          
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          branch: gh-pages
-          folder: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./cypress/reports
