@@ -1,22 +1,46 @@
-name: Cypress Tests
+name: Cypress Tests and Publish
 
 on: push
 
 jobs:
   cypress-run-chrome:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Cypress Chrome Execution
         uses: cypress-io/github-action@v6
         with:
-          e2e: 
+          e2e: cypress/integration/*.spec.js
           browser: chrome
       - name: Save build folder
         uses: actions/upload-artifact@v3
         with:
           name: build
           if-no-files-found: error
-          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports 
-             
+          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports
+
+  publish-to-gh-pages:
+    needs: cypress-run-chrome
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create and clean gh-pages branch
+        run: |
+          git checkout --orphan gh-pages
+          git rm -rf .
+          touch .gitkeep
+          git add .gitkeep
+          git commit -m "Initialize gh-pages branch"
+          git push origin gh-pages --force
+      - name: Download Cypress artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports
+      - name: Publish to GitHub Pages
+        uses: jamesgeorge007/github-pages-deploy-action@releases/v3
+        with:
+          branch: gh-pages
+          folder: /home/runner/work/CypressAutomation/CypressAutomation/cypress/reports
